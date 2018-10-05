@@ -1,0 +1,84 @@
+﻿<Window x:Class="LeapmotionWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LeapmotionWPF"
+        mc:Ignorable="d"
+        Title="leapmotionsamle" Height="500" Width="600">
+    
+    <Grid>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <TextBox Name="txtInformation" Width="200" Height="30" FontSize="16"></TextBox> 
+            </StackPanel>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Bottom">
+                <TextBlock Text="Service:  "/>
+                <TextBlock Text="{Binding ServiceInfo}"/>
+                <TextBlock Text=", Device =  "/>
+                <TextBlock Text=
+                    "{Binding DeviceInfo}"/>
+                <TextBlock Text=", numofhand =  "/>
+                <TextBlock Text=
+                    "{Binding NumOfHand}"/>
+                
+                <TextBlock Text=", framerate =  "/>
+                <TextBlock Text=
+                    "{Binding FrameRate}"/>
+            </StackPanel>
+            <Viewbox Grid.Row="1" HorizontalAlignment="Center">
+                
+                <Ellipse Fill="SteelBlue" StrokeThickness="4.0"  />
+            </Viewbox>
+            <ScrollViewer Grid.Row="2" 
+            ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+            ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel  Orientation="Vertical">
+                    <TextBlock  Text="Wrist  "/>
+                        <TextBlock Text="{Binding WristX}"/>
+                    <TextBlock Text=
+                    "{Binding WristY}"/>
+                    <TextBlock Text=
+                    "{Binding WristZ}"/>
+                </StackPanel>
+                    <StackPanel Margin="10,0,0,0" Orientation="Vertical">
+                        <TextBlock Text="WristNormalized  "/>
+                        <TextBlock Text="{Binding WristNormX}"/>
+                        <TextBlock Text=
+                    "{Binding WristNormY}"/>
+                        <TextBlock Text=
+                    "{Binding WristNormZ}"/>
+                    </StackPanel>
+                    <StackPanel  Margin="10,0,0,0" Orientation="Vertical">
+                        <TextBlock Text="Elbow  "/>
+                        <TextBlock Text="{Binding ElbowX}"/>
+                        <TextBlock Text=
+                    "{Binding ElbowY}"/>
+                        <TextBlock Text=
+                    "{Binding ElbowZ}"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,0" Orientation="Vertical">  
+                        <TextBlock Text="GrabAngle  "/>
+                        <TextBlock Text="{Binding GrabAngle}"/>
+                        <TextBlock Text="HandState  "/>
+                        <TextBlock Text="{Binding HandState}"/>
+                    </StackPanel>
+                    <Button Content="Pause" 
+                            Click="Pause_Click" Background="#FFD3450B"/>
+                    <Button Content="Start" 
+                            Click="Start_Click" Background="#FF3BACCE" Width="38"/>
+                    <Button Name="connect" Margin="20,0,0,0 " Content="连接服务器" Background="#FF3BACCE" Click="btnConnect" Width="73"></Button>
+                    <Button Name="disconnect" Margin="0,0,0,0 " Content="断开服务器" Background="#FF3BACCE" Click="btnDisconnect" Width="76"></Button>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>
